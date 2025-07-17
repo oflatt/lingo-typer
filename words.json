@@ -1,0 +1,180 @@
+{
+  "A1": {
+    "Basics & High‑Frequency Verbs": [
+      {"italian":"essere","english":"to be"},
+      {"italian":"avere","english":"to have"},
+      {"italian":"fare","english":"to do/make"},
+      {"italian":"andare","english":"to go"},
+      {"italian":"dire","english":"to say"},
+      {"italian":"venire","english":"to come"},
+      {"italian":"stare","english":"to stay/be"},
+      {"italian":"potere","english":"can/to be able"},
+      {"italian":"volere","english":"to want"},
+      {"italian":"sapere","english":"to know (facts)"}
+    ],
+    "Greetings & Basic Expressions": [
+      {"italian":"ciao","english":"hi/bye"},
+      {"italian":"buongiorno","english":"good morning"},
+      {"italian":"buonasera","english":"good evening"},
+      {"italian":"buonanotte","english":"good night"},
+      {"italian":"grazie","english":"thank you"},
+      {"italian":"per favore","english":"please"},
+      {"italian":"scusa","english":"excuse me/sorry"},
+      {"italian":"si","english":"yes"},
+      {"italian":"no","english":"no"},
+      {"italian":"bene","english":"fine/well"}
+    ],
+    "Numbers, Time & Date": [
+      {"italian":"uno","english":"one"},
+      {"italian":"due","english":"two"},
+      {"italian":"tre","english":"three"},
+      {"italian":"quattro","english":"four"},
+      {"italian":"cinque","english":"five"},
+      {"italian":"oggi","english":"today"},
+      {"italian":"ieri","english":"yesterday"},
+      {"italian":"domani","english":"tomorrow"},
+      {"italian":"settimana","english":"week"},
+      {"italian":"mese","english":"month"},
+      {"italian":"anno","english":"year"}
+    ],
+    "Common Nouns – Family, Home, School": [
+      {"italian":"casa","english":"house"},
+      {"italian":"scuola","english":"school"},
+      {"italian":"libro","english":"book"},
+      {"italian":"penna","english":"pen"},
+      {"italian":"zaino","english":"backpack"},
+      {"italian":"tavolo","english":"table"},
+      {"italian":"sedia","english":"chair"},
+      {"italian":"finestra","english":"window"},
+      {"italian":"porta","english":"door"},
+      {"italian":"telefono","english":"telephone"},
+      {"italian":"madre","english":"mother"},
+      {"italian":"padre","english":"father"},
+      {"italian":"figlio","english":"son"},
+      {"italian":"figlia","english":"daughter"},
+      {"italian":"genitori","english":"parents"}
+    ],
+    "Basic Everyday Vocabulary": [
+      {"italian":"cibo","english":"food"},
+      {"italian":"acqua","english":"water"},
+      {"italian":"pane","english":"bread"},
+      {"italian":"latte","english":"milk"},
+      {"italian":"caffè","english":"coffee"},
+      {"italian":"luce","english":"light"},
+      {"italian":"sole","english":"sun"},
+      {"italian":"piove","english":"it rains"},
+      {"italian":"freddo","english":"cold"},
+      {"italian":"caldo","english":"hot"}
+    ],
+    "Prepositions & Adverbs": [
+      {"italian":"in","english":"in"},
+      {"italian":"su","english":"on"},
+      {"italian":"con","english":"with"},
+      {"italian":"per","english":"for"},
+      {"italian":"di","english":"of/from"},
+      {"italian":"qui","english":"here"},
+      {"italian":"là","english":"there"},
+      {"italian":"sempre","english":"always"},
+      {"italian":"mai","english":"never"},
+      {"italian":"molto","english":"very/a lot"}
+    ]
+  },
+  "A2": {
+    "Daily Routine & Reflexive Verbs": [
+      {"italian":"alzarsi","english":"to get up"},
+      {"italian":"lavarsi","english":"to wash oneself"},
+      {"italian":"vestirsi","english":"to get dressed"},
+      {"italian":"dormire","english":"to sleep"},
+      {"italian":"mangiare","english":"to eat"},
+      {"italian":"bere","english":"to drink"},
+      {"italian":"andare a scuola","english":"to go to school"},
+      {"italian":"tornare","english":"to return"},
+      {"italian":"chiamarsi","english":"to be called"},
+      {"italian":"sentirsi","english":"to feel"}
+    ],
+    "Travel & Transportation": [
+      {"italian":"aeroporto","english":"airport"},
+      {"italian":"stazione","english":"station"},
+      {"italian":"autobus","english":"bus"},
+      {"italian":"treno","english":"train"},
+      {"italian":"metro","english":"subway"},
+      {"italian":"taxi","english":"taxi"},
+      {"italian":"biglietto","english":"ticket"},
+      {"italian":"andata e ritorno","english":"round trip"},
+      {"italian":"mappa","english":"map"},
+      {"italian":"via","english":"street"}
+    ],
+    "Food & Shopping": [
+      {"italian":"negozio","english":"shop"},
+      {"italian":"ristorante","english":"restaurant"},
+      {"italian":"mercato","english":"market"},
+      {"italian":"insalata","english":"salad"},
+      {"italian":"formaggio","english":"cheese"},
+      {"italian":"carne","english":"meat"},
+      {"italian":"pesce","english":"fish"},
+      {"italian":"frutta","english":"fruit"},
+      {"italian":"verdura","english":"vegetables"},
+      {"italian":"alimento","english":"food item"}
+    ],
+    "Describing Places & Things": [
+      {"italian":"grande","english":"big"},
+      {"italian":"piccolo","english":"small"},
+      {"italian":"bello","english":"beautiful"},
+      {"italian":"brutto","english":"ugly"},
+      {"italian":"vecchio","english":"old"},
+      {"italian":"giovane","english":"young"},
+      {"italian":"nuovo","english":"new"},
+      {"italian":"vecchio","english":"old"},
+      {"italian":"utile","english":"useful"},
+      {"italian":"difficile","english":"difficult"}
+    ],
+    "Emotions & Opinions": [
+      {"italian":"felice","english":"happy"},
+      {"italian":"triste","english":"sad"},
+      {"italian":"arrabbiato","english":"angry"},
+      {"italian":"stanco","english":"tired"},
+      {"italian":"malato","english":"sick"},
+      {"italian":"annoiare","english":"to bore"},
+      {"italian":"interessante","english":"interesting"},
+      {"italian":"noioso","english":"boring"},
+      {"italian":"preferire","english":"to prefer"},
+      {"italian":"piacere","english":"to like"}
+    ],
+    "House & Household Items": [
+      {"italian":"cucina","english":"kitchen"},
+      {"italian":"bagno","english":"bathroom"},
+      {"italian":"camera","english":"room"},
+      {"italian":"letto","english":"bed"},
+      {"italian":"sedia","english":"chair"},
+      {"italian":"tavolo","english":"table"},
+      {"italian":"lavatrice","english":"washing machine"},
+      {"italian":"forno","english":"oven"},
+      {"italian":"frigorifero","english":"fridge"},
+      {"italian":"lavastoviglie","english":"dishwasher"}
+    ],
+    "Communication & Asking": [
+      {"italian":"domandare","english":"to ask"},
+      {"italian":"rispondere","english":"to answer"},
+      {"italian":"parlare","english":"to speak"},
+      {"italian":"ascoltare","english":"to listen"},
+      {"italian":"vedere","english":"to see"},
+      {"italian":"guardare","english":"to watch/look"},
+      {"italian":"scrivere","english":"to write"},
+      {"italian":"leggere","english":"to read"},
+      {"italian":"capire","english":"to understand"},
+      {"italian":"spiegare","english":"to explain"}
+    ],
+    "Prepositions & Connectors": [
+      {"italian":"davanti a","english":"in front of"},
+      {"italian":"dietro","english":"behind"},
+      {"italian":"accanto a","english":"next to"},
+      {"italian":"tra/fra","english":"between"},
+      {"italian":"prima","english":"before"},
+      {"italian":"dopo","english":"after"},
+      {"italian":"perché","english":"because/why"},
+      {"italian":"quindi","english":"so/therefore"},
+      {"italian":"anche","english":"also"},
+      {"italian":"ma","english":"but"}
+    ]
+  }
+}
