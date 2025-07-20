@@ -49,6 +49,11 @@ button {
   transition: background-color 0.3s ease;
 }
 
+button.learn-mode {
+  background-color: #859900 !important;
+  color: white !important;
+}
+
 button:hover {
   background-color: #268986;
 }
@@ -100,4 +105,23 @@ button:hover {
 
 .hidden {
   display: none;
+}
+
+.timer-container {
+  margin-bottom: 1em;
+}
+
+#timer-bar-container {
+  background-color: #ddd;
+  height: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#timer-bar {
+  height: 100%;
+  width: 100%;
+  background-color: #4caf50;
+  transition: width 0.1s linear;
+  border-radius: 6px;
 }
