@@ -290,6 +290,7 @@ function runLearnMode(level, category, words) {
     input.addEventListener("input", () => {
       if (answered) return;
       const userValue = input.value.trim().toLowerCase();
+      if (!userValue) return; // Don't advance for empty answers
       const correctValue = italian.toLowerCase();
       if (removeAccents(userValue) === removeAccents(correctValue)) {
         answered = true;
@@ -302,6 +303,7 @@ function runLearnMode(level, category, words) {
       e.preventDefault();
       if (answered) return;
       const userValue = input.value.trim().toLowerCase();
+      if (!userValue) return; // Don't advance for empty answers
       const correctValue = italian.toLowerCase();
       if (removeAccents(userValue) === removeAccents(correctValue)) {
         answered = true;
@@ -370,6 +372,7 @@ function runLearnMode(level, category, words) {
     input.addEventListener("input", () => {
       if (answered) return;
       const userValue = input.value.trim().toLowerCase();
+      if (!userValue) return; // Don't advance for empty answers
       const correctValue = italian.toLowerCase();
       if (removeAccents(userValue) === removeAccents(correctValue)) {
         answered = true;
@@ -382,6 +385,7 @@ function runLearnMode(level, category, words) {
       e.preventDefault();
       if (answered) return;
       const userValue = input.value.trim().toLowerCase();
+      if (!userValue) return; // Don't advance for empty answers
       const correctValue = italian.toLowerCase();
       if (removeAccents(userValue) === removeAccents(correctValue)) {
         answered = true;
