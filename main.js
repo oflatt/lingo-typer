@@ -257,16 +257,11 @@ function runLearnMode(level, category, words) {
     const batch = words.slice(current, current + batchSize);
     if (batch.length === 0) {
       container.innerHTML = doneScreenHTML();
-      document.getElementById("back-menu-btn").onclick = () => location.reload();
-      document.addEventListener("keydown", handleEnterReload, { once: true });
+      const btn = document.getElementById("back-menu-btn");
+      if (btn) btn.onclick = () => location.reload();
       return;
     }
     renderStep1(batch, 0);
-  }
-
-  function handleEnterReload(e) {
-    if (e.key === "Enter") location.reload();
-    else document.addEventListener("keydown", handleEnterReload, { once: true });
   }
 
   // Step 1: Show each word, user types Italian, show answer after submit
@@ -280,53 +275,78 @@ function runLearnMode(level, category, words) {
     speak(italian);
     const input = document.getElementById("step1-input");
     const feedback = document.getElementById("step1-feedback");
-    let nextStep = () => renderStep1(batch, idx + 1);
+    let answered = false;
 
-    function handleEnter(e) {
-      if (e.key === "Enter") {
-        if (!input.disabled) {
-          document.getElementById("step1-form").requestSubmit();
-        } else {
-          nextStep();
-        }
-      } else {
-        document.addEventListener("keydown", handleEnter, { once: true });
-      }
+    function showFeedback(msg, color) {
+      feedback.textContent = msg;
+      feedback.style.color = color;
+      feedback.style.opacity = "1";
+      setTimeout(() => {
+        feedback.style.opacity = "0";
+        setTimeout(() => renderStep1(batch, idx + 1), 300);
+      }, 1000);
     }
 
-    document.getElementById("step1-form").onsubmit = function(e) {
-      e.preventDefault();
+    input.addEventListener("input", () => {
+      if (answered) return;
       const userValue = input.value.trim().toLowerCase();
       const correctValue = italian.toLowerCase();
       if (removeAccents(userValue) === removeAccents(correctValue)) {
-        feedback.textContent = "✅";
-        feedback.style.color = "green";
-      } else {
-        feedback.textContent = `❌ (${italian})`;
-        feedback.style.color = "red";
+        answered = true;
+        input.disabled = true;
+        showFeedback("✅", "green");
       }
-      input.disabled = true;
-      setTimeout(nextStep, 700);
+    });
+
+    document.getElementById("step1-form").onsubmit = function(e) {
+      e.preventDefault();
+      if (answered) return;
+      const userValue = input.value.trim().toLowerCase();
+      const correctValue = italian.toLowerCase();
+      if (removeAccents(userValue) === removeAccents(correctValue)) {
+        answered = true;
+        input.disabled = true;
+        showFeedback("✅", "green");
+      } else {
+        answered = true;
+        input.disabled = true;
+        showFeedback(`❌ (${italian})`, "red");
+      }
     };
     input.focus();
-    document.addEventListener("keydown", handleEnter, { once: true });
   }
 
   // Step 2: Show only English, user types Italian, random order
   function renderStep2(batch, order, idx, results) {
     if (idx >= batch.length) {
-      container.innerHTML = learnStep2ResultsHTML(batch, order, results);
-      const nextBtn = document.getElementById("next-batch-btn");
-      let nextStep = () => {
-        current += batchSize;
-        renderBatchIntro();
-      };
-      nextBtn.onclick = nextStep;
-      function handleEnter(e) {
-        if (e.key === "Enter") nextStep();
-        else document.addEventListener("keydown", handleEnter, { once: true });
+      const incorrectIndices = order.filter((i, j) => !results[j].correct);
+      if (incorrectIndices.length > 0) {
+        const retryBatch = incorrectIndices.map(i => batch[i]);
+        container.innerHTML = learnStep2ResultsHTML(batch, order, results) +
+          `<p style="color:#b71c1c;font-weight:bold;">Try again for incorrect answers!</p>`;
+        const btn = document.getElementById("next-batch-btn");
+        if (btn) btn.onclick = () => renderStep1(retryBatch, 0);
+        // Advance on Enter
+        document.onkeydown = function(e) {
+          if (e.key === "Enter") {
+            renderStep1(retryBatch, 0);
+          }
+        };
+      } else {
+        container.innerHTML = learnStep2ResultsHTML(batch, order, results);
+        const btn = document.getElementById("next-batch-btn");
+        if (btn) btn.onclick = () => {
+          current += batchSize;
+          renderBatchIntro();
+        };
+        // Advance on Enter
+        document.onkeydown = function(e) {
+          if (e.key === "Enter") {
+            current += batchSize;
+            renderBatchIntro();
+          }
+        };
       }
-      document.addEventListener("keydown", handleEnter, { once: true });
       return;
     }
     const i = order[idx];
@@ -334,39 +354,46 @@ function runLearnMode(level, category, words) {
     container.innerHTML = learnStep2HTML(english, idx, batch.length);
     const input = document.getElementById("step2-input");
     const feedback = document.getElementById("step2-feedback");
-    let nextStep = () => renderStep2(batch, order, idx + 1, [...results, { correct: feedback.textContent === "✅" }]);
+    let answered = false;
 
-    function handleEnter(e) {
-      if (e.key === "Enter") {
-        if (!input.disabled) {
-          document.getElementById("step2-form").requestSubmit();
-        } else {
-          nextStep();
-        }
-      } else {
-        document.addEventListener("keydown", handleEnter, { once: true });
-      }
+    function showFeedback(msg, color, correct) {
+      feedback.textContent = msg;
+      feedback.style.color = color;
+      feedback.style.opacity = "1";
+      speak(italian);
+      setTimeout(() => {
+        feedback.style.opacity = "0";
+        setTimeout(() => renderStep2(batch, order, idx + 1, [...results, { correct }]), 300);
+      }, 1000);
     }
+
+    input.addEventListener("input", () => {
+      if (answered) return;
+      const userValue = input.value.trim().toLowerCase();
+      const correctValue = italian.toLowerCase();
+      if (removeAccents(userValue) === removeAccents(correctValue)) {
+        answered = true;
+        input.disabled = true;
+        showFeedback("✅", "green", true);
+      }
+    });
 
     document.getElementById("step2-form").onsubmit = function(e) {
       e.preventDefault();
+      if (answered) return;
       const userValue = input.value.trim().toLowerCase();
       const correctValue = italian.toLowerCase();
-      let correct = false;
       if (removeAccents(userValue) === removeAccents(correctValue)) {
-        feedback.textContent = "✅";
-        feedback.style.color = "green";
-        correct = true;
+        answered = true;
+        input.disabled = true;
+        showFeedback("✅", "green", true);
       } else {
-        feedback.textContent = `❌ (${italian})`;
-        feedback.style.color = "red";
+        answered = true;
+        input.disabled = true;
+        showFeedback(`❌ (${italian})`, "red", false);
       }
-      input.disabled = true;
-      speak(italian);
-      setTimeout(nextStep, 700);
     };
     input.focus();
-    document.addEventListener("keydown", handleEnter, { once: true });
   }
 
   // Fisher-Yates shuffle
